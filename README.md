@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>KI2 World</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:#000;
+    color:white;
+}
+
+/* 3D Background Animation */
+
+.scene{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.cube{
+    position:absolute;
+    width:80px;
+    height:80px;
+    border:2px solid rgba(255,255,255,0.2);
+    transform-style:preserve-3d;
+    animation:rotate 12s linear infinite;
+}
+
+.cube::before,
+.cube::after{
+    content:'';
+    position:absolute;
+    width:80px;
+    height:80px;
+    border:2px solid rgba(0,255,255,0.3);
+}
+
+.cube:nth-child(1){
+    top:10%;
+    left:10%;
+    animation-duration:10s;
+}
+
+.cube:nth-child(2){
+    top:60%;
+    left:70%;
+    animation-duration:15s;
+}
+
+.cube:nth-child(3){
+    top:30%;
+    left:50%;
+    animation-duration:18s;
+}
+
+@keyframes rotate{
+    0%{
+        transform:rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform:rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* Main Container */
+
+.container{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+    backdrop-filter: blur(3px);
+}
+
+h1{
+    font-size:70px;
+    letter-spacing:4px;
+    color:#00ffff;
+    text-shadow:0 0 20px #00ffff;
+    margin-bottom:10px;
+}
+
+.welcome{
+    font-size:28px;
+    margin-bottom:30px;
+}
+
+.quote{
+    max-width:900px;
+    font-size:18px;
+    line-height:1.8;
+    color:#ddd;
+    margin-bottom:40px;
+}
+
+.search-box{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+input{
+    width:320px;
+    padding:16px;
+    border:none;
+    border-radius:40px;
+    outline:none;
+    font-size:18px;
+    text-align:center;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+}
+
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:40px;
+    background:#00ffff;
+    color:black;
+    font-size:18px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    background:white;
+    transform:scale(1.05);
+}
+
+.footer{
+    position:absolute;
+    bottom:20px;
+    font-size:14px;
+    color:#aaa;
+}
+
+@media(max-width:768px){
+
+    h1{
+        font-size:45px;
+    }
+
+    .welcome{
+        font-size:22px;
+    }
+
+    .quote{
+        font-size:15px;
+    }
+
+    input{
+        width:90%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 3D Animation -->
+<div class="scene">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+    <h1>KI2</h1>
+
+    <div class="welcome">
+        Welcome To My World 🌍
+    </div>
+
+    <div class="quote">
+        <p>Hii I'm KI2 👋</p><br>
+
+        <p>
+        "Be the kind of person who not only pretends to be good but is also a really good person."
+        </p><br>
+
+        <p>
+        "That best portion of a good man's life; His little, nameless, unremembered acts of kindness and of love."
+        </p><br>
+
+        <p>
+        "The most important thing is that you be a good person and you live by the golden rule of do unto others."
+        </p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Enter 1, 2 or 3">
+        <button onclick="openPage()">Search</button>
+    </div>
+
+</div>
+
+<div class="footer">
+    © KI2 World
+</div>
+
+<script>
+
+function openPage(){
+
+    let value = document.getElementById("searchInput").value;
+
+    // PAGE 1
+    if(value == "1"){
+
+        let newWindow = window.open("");
+
+        newWindow.document.write(`
+        <html>
+        <head>
+        <title>KI2 Page</title>
+        <style>
+        body{
+            margin:0;
+            background:black;
+            color:white;
+            font-family:Poppins,sans-serif;
+            overflow:hidden;
+            text-align:center;
+        }
+
+        .bg{
+            position:absolute;
+            width:100%;
+            height:100vh;
+            background:linear-gradient(45deg,#00ffff,#0011ff,#ff00ff);
+            animation:bg 6s infinite alternate;
+            z-index:-1;
+        }
+
+        @keyframes bg{
+            0%{filter:hue-rotate(0deg);}
+            100%{filter:hue-rotate(360deg);}
+        }
+
+        .content{
+            padding-top:100px;
+        }
+
+        h1{
+            font-size:60px;
+        }
+
+        p{
+            width:80%;
+            margin:auto;
+            line-height:2;
+            font-size:20px;
+        }
+        </style>
+        </head>
+
+        <body>
+
+        <div class="bg"></div>
+
+        <div class="content">
+        <h1>Hii I'm KI2 👋</h1>
+
+        <p>
+        "Be the kind of person who not only pretends to be good but is also a really good person."
+        </p><br>
+
+        <p>
+        "That best portion of a good man's life; His little, nameless, unremembered acts of kindness and of love."
+        </p><br>
+
+        <p>
+        "The most important thing is that you be a good person and you live by the golden rule of do unto others."
+        </p>
+
+        </div>
+
+        </body>
+        </html>
+        `);
+
+    }
+
+    // PAGE 2
+    else if(value == "2"){
+
+        let newWindow = window.open("");
+
+        newWindow.document.write(`
+        <html>
+        <head>
+        <title>Shiva Page</title>
+
+        <style>
+
+        body{
+            margin:0;
+            overflow:hidden;
+            background:black;
+            color:white;
+            font-family:Poppins,sans-serif;
+            text-align:center;
+        }
+
+        .bg{
+            position:absolute;
+            width:100%;
+            height:100vh;
+            background:radial-gradient(circle,#ff0080,#000);
+            animation:rotate 8s infinite linear;
+            z-index:-1;
+        }
+
+        @keyframes rotate{
+            100%{
+                transform:rotate(360deg);
+            }
+        }
+
+        .content{
+            padding:40px;
+            font-size:22px;
+            line-height:2;
+        }
+
+        h1{
+            font-size:60px;
+            color:#00ffff;
+        }
+
+        </style>
+
+        </head>
+
+        <body>
+
+        <div class="bg"></div>
+
+        <div class="content">
+
+        <h1>SHIVA ❤️</h1>
+
+        ╔━━✦♥️✦━━╗ <br><br>
+
+        🎵 Music Mood 🥰 <br>
+        📸 Selfie Freak <br>
+        🚘 BMW Dream <br>
+        🎂 16 Oct <br>
+        👨‍👩‍👧 Mom + Dad = 🌎 <br>
+        💖 Friends Treasure <br>
+        👑 Respect Girls <br><br>
+
+        ╚━━✦♥️✦━━╝
+
+        </div>
+
+        </body>
+        </html>
+        `);
+
+    }
+
+    // PAGE 3
+    else if(value == "3"){
+
+        let newWindow = window.open("");
+
+        newWindow.document.write(`
+        <html>
+
+        <head>
+
+        <title>Contact Page</title>
+
+        <style>
+
+        body{
+            margin:0;
+            overflow:hidden;
+            background:black;
+            color:white;
+            font-family:Poppins,sans-serif;
+            text-align:center;
+        }
+
+        .bg{
+            position:absolute;
+            width:100%;
+            height:100vh;
+            background:linear-gradient(45deg,#00ff99,#0066ff,#ff00cc);
+            animation:animate 5s infinite alternate;
+            z-index:-1;
+        }
+
+        @keyframes animate{
+            0%{filter:blur(0px);}
+            100%{filter:blur(10px);}
+        }
+
+        .content{
+            padding-top:120px;
+            line-height:2.5;
+            font-size:24px;
+        }
+
+        h1{
+            font-size:55px;
+            color:#00ffff;
+        }
+
+        </style>
+
+        </head>
+
+        <body>
+
+        <div class="bg"></div>
+
+        <div class="content">
+
+        <h1>KI2_YADAV</h1>
+
+        📱 WhatsApp: 9542724618 <br>
+        👻 Snap: krish2898ad <br>
+        📧 Email: kurrakittu704@gmail.com <br><br>
+
+        THANKS FOR VISITING ❤️
+
+        </div>
+
+        </body>
+
+        </html>
+        `);
+
+    }
+
+    else{
+        alert("Please enter only 1, 2 or 3");
+    }
+}
+</script>
+
+</body>
+</html>
